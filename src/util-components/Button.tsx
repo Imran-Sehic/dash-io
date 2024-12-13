@@ -4,7 +4,7 @@ interface ButtonInterface {
   onClick?: () => void;
   icon?: ReactNode;
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Button: React.FC<ButtonInterface> = ({

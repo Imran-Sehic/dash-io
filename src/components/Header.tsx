@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex relative justify-between items-center bg-white sticky top-0 p-2 px-5 border-b shadow border-b-blue-300">
+    <div className="flex relative justify-between items-center bg-white sticky top-0 p-2 px-5 border-b shadow border-b-blue-300 z-10">
       <div className="flex gap-4 items-end justify-center">
         <Link className="text-2xl font-custom text-blue-400" to="/">
           Dash.io

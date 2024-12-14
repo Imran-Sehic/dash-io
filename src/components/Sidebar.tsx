@@ -2,10 +2,12 @@ import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   EllipsisVerticalIcon,
+  ExclamationCircleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction, useState } from "react";
 import Spinner from "../util-components/Spinner";
+import { columnsMap } from "./Table";
 
 interface SidebarInterface {
   isSidebarOpen: boolean;
@@ -58,7 +60,7 @@ const Sidebar: React.FC<SidebarInterface> = ({
     >
       <div
         onClick={toggleSidebar}
-        className="absolute cursor-pointer top-1/3 transform -translate-x-[100%] bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 rounded-s shadow-lg transition-all duration-300"
+        className="absolute cursor-pointer top-[30px] transform -translate-x-[100%] bg-blue-500 hover:bg-blue-700 text-white py-4 px-4 rounded-s shadow-lg transition-all duration-300"
       >
         {isSidebarOpen ? (
           <ChevronDoubleRightIcon className="w-4" />
@@ -69,7 +71,7 @@ const Sidebar: React.FC<SidebarInterface> = ({
       <div className="p-6">
         {isLoading ? (
           <Spinner />
-        ) : (
+        ) : hiddenColumns.length > 0 || shownColumns.length > 0 ? (
           <div>
             <p className="text-xl">Skrivene Kolone</p>
             <div className="grid grid-cols-[auto_auto] justify-start items-center gap-1">
@@ -89,7 +91,7 @@ const Sidebar: React.FC<SidebarInterface> = ({
                     setShownColumns([...shownColumns, col]);
                   }}
                 >
-                  {col}
+                  {columnsMap.get(col)}
                 </div>
               ))
             ) : (
@@ -125,9 +127,14 @@ const Sidebar: React.FC<SidebarInterface> = ({
                 }}
               >
                 <EllipsisVerticalIcon className="w-6" />
-                {col}
+                {columnsMap.get(col)}
               </div>
             ))}
+          </div>
+        ) : (
+          <div className="flex flex-col text-white mt-5 justify-center items-center">
+            <ExclamationCircleIcon className="w-8" />
+            <p>Nema kolona za prikaz!</p>
           </div>
         )}
       </div>

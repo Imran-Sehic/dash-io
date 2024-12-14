@@ -5,7 +5,7 @@ const MainLayout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     <div className="h-[100vh] font-rubik">
       <div className="overflow-auto h-screen flex flex-col">
         <Header />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 overflow-auto w-full">{children}</div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const Search: React.FC<SearchInterface> = ({
 }) => {
   return (
     <div className="flex flex-col gap-1">
-      <p className="ml-2 text-slate-400">{label}</p>
+      <p className="ml-2 text-blue-400">{label}</p>
       <input
         type={type}
         placeholder={placeholder}

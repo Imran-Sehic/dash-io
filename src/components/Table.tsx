@@ -21,7 +21,7 @@ export const columnsMap = new Map<string, string>([
 const Table: React.FC<TableInterface> = ({ targets, columns, pages }) => {
   return (
     <div className="mt-10 overflow-auto whitespace-nowrap">
-      <h2>Šifre</h2>
+      <h2 className="text-2xl mb-2 ml-2 text-blue-400">Šifre</h2>
       <DataGrid
         dataSource={targets}
         showBorders={true}
